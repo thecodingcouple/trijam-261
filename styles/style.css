@@ -1,7 +1,16 @@
+:root {
+    --color-primary: #222831;
+    --color-secondary: #31363F;
+    --teal: #76ABAE;
+    --off-white: #EEEEEE;
+}
+
 html,
 body {
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
+    background-color: var(--off-white);
 }
 
 body {
@@ -19,11 +28,95 @@ footer {
     padding: 1rem 2rem;
 }
 
+header {
+    font-weight: bold;
+    background-color: var(--color-primary);
+    box-shadow: 5px 0 10px var(--color-secondary);
+}
+
+header a {
+    color: var(--off-white);
+}
+
 footer {
     text-align: center;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a img {
+    width: 24px;
+    margin: 0 5px;
+}
+
+footer a,
+.game-description p,
+.big-heading {
+    color: var(--color-primary);
 }
 
 header a,
 footer a {
     text-decoration: none;
+}
+
+.big-heading {
+    font-size: 4rem;
+    font-family: "Holtwood One SC";
+    text-align: center;
+}
+
+.title-image {
+    width: 25vw;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-description {
+    padding: 5vh 10vw;
+}
+
+.game-description p {
+    text-align: right;
+    margin-left: 10vw;
+    font-size: 1.25rem;
+}
+
+.state-game-button {
+    background-color: var(--color-primary);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    padding: .5rem 1rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 5ms linear;
+    cursor: pointer;
+}
+
+.state-game-button:hover {
+    background: var(--color-secondary);
+    color: var(--teal);
+}
+
+.state-game-button:active {
+    background:  var(--teal);
+    color: white;
+}
+
+#start-scene div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#start-scene > div {
+    flex-direction: column;
 }

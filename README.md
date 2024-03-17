@@ -25,7 +25,7 @@ python -m http.server 8000
 
 ## Third Party Assets 
 
-* TBD
+* [Color Hunt Color Palette](https://colorhunt.co/palette/22283131363f76abaeeeeeee)
 
 ## Maintainers
 

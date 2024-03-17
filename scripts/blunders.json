@@ -1,0 +1,22 @@
+{
+    "blunders": [
+        {
+            "event": "Tournment A",
+            "date": "May 2, 1987",
+            "white": {
+                "name": "John Doe",
+                "isActivePlayer": false
+            },
+            "black": {
+                "name": "Jane Doe",
+                "isActivePlayer": true
+            },
+            "board": [
+                []
+            ],
+            "pieceToMove": [0,3],
+            "destination": [3,8],
+            "description": "An explaination of the blunder and the historial context"
+        }
+    ]
+}

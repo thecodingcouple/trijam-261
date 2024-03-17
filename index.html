@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Famous Blunders | Trijam #261</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Famous Blunders | Trijam #261</title><link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
         <link href="styles/style.css" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <header>
             <a href="https://www.github.com/thecodingcouple/trijam-261">Famous Blunders | Trijam #261</a>
         </header>
         <main>
-            <img src="assets/black-bishop.png">
+            <!-- Start Game Scene -->
+            <section id="start-scene">
+                <div class="scene">
+                    <h1 class="big-heading">Famous Blunders</h1>
+                    <div class="game-description">
+                        <img class="title-image" src="assets/black-queen.png" alt="A hand drawn Black King Chess piece">
+                        <p>In <strong>Famous Blunders</strong> you are replaying the final moments before a chess player blundered a game piece. The objective of the game is to identify which piece was blundered and where did the player blundering the move placed it.</p>
+                    </div>
+                    <button class="state-game-button">Start Game</button>
+                </div>
+            </section>
+            <!-- Play Scene -->
+            <section id="play-scene" class="hidden">
+                <div class="scene">
+                    <h2 id="players-heading"></h2>
+                    <h3 id="event-heading"></h3>
+                    <table id="game-board"></table>
+                    <button id="hint-button" title="Reveal Hint">Reveal Hint</button>
+                </div>
+            </section>
+            <!-- End Game Scene -->
+            <section id="end-scene" class="hidden">
+                <div class="scene"></div>
+            </section>
         </main>
         <footer>
-            <a href="https://twitter.com/thecodingcouple">A game by Michael &amp; Ashley | @thecodingcouple</a>
+            <a href="https://twitter.com/thecodingcouple">A game by Michael &amp; Ashley | @thecodingcouple  <img src="favicon.ico"> </a>
         </footer>
         <script type="module" src="scripts/main.js"></script>
     </body>
