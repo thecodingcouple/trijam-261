@@ -2,6 +2,7 @@
     --color-primary: #222831;
     --color-secondary: #31363F;
     --teal: #76ABAE;
+    --translucent-teal: #76abaed9;
     --dark-teal: #007F73;
     --translucent-dark-teal: #007f728c;
     --off-white: #EEEEEE;
@@ -222,4 +223,11 @@ tr:nth-child(odd) td:nth-child(even) {
     font-family: "Holtwood One SC";
     text-shadow: 2px 2px var(--color-primary);
     font-size: 1.5rem;
+}
+
+#blunder-explanation {
+    padding: 5% 10%;
+    background-color: var(--translucent-teal);
+    text-shadow: 1px 1px var(--color-secondary);
+    text-align: justify;
 }

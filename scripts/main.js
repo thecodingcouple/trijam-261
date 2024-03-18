@@ -94,23 +94,31 @@ function startRound(round) {
  * Determine whether or not the player guess correctly before ending the round
  */
 function endRound() {
-    let playerWon = true;
     let pieceToMove = _blunders[_currentBlunderIndex].pieceToMove;
     let destination = _blunders[_currentBlunderIndex].destination;
-    // Check to see if the user won the round
-    for(let cell of _clickedCells) {
-        if(!(cell[0] == pieceToMove[0] && cell[1] == pieceToMove[1]) || 
-           !(cell[0] == destination[0] && cell[1] == destination[1])) {
-            playerWon = false;
-        }
-    }
-console.log(_clickedCells, pieceToMove, destination);
+
+    // Check to see if the user won the rounds
+    const containsPieceToMove = _clickedCells.some(p => pieceToMove[0] == p[0] && pieceToMove[1] == p[1]);
+    const containsDestination = _clickedCells.some(d => destination[0] == d[0] && destination[1] == d[1]);
+
+    const playerWon = containsPieceToMove && containsDestination;
+
     if (playerWon) {
+        const blunderExplanation = document.getElementById('blunder-explanation');
+        blunderExplanation.innerText = _blunders[_currentBlunderIndex].description;
+
+        const hintButton = document.getElementById('hint-button');
+        hintButton.classList.add('hidden');
+
+        // Hide the next round button if player is in the last round
+        if(_currentBlunderIndex + 1 == _blunders.length) {
+            const nextRoundButton = document.getElementById('next-round-button');
+            nextRoundButton.classList.add('hidden');
+        }
+
         const correctAnswer = document.getElementById('correct-answer');
         correctAnswer.classList.remove('hidden');
 
-        const blunderExplanation = document.getElementById('blunder-explanation');
-        blunderExplanation.innerText = _blunders[_currentBlunderIndex].description;
     } else {
         const incorrectAnswer = document.getElementById('incorrect-answer');
         incorrectAnswer.classList.remove('hidden');
