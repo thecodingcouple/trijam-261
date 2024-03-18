@@ -21,7 +21,7 @@ python -m http.server 8000
 
 ## Useful Resources
 
-* TBD
+* [Create checked board pattern in CSS](https://stackoverflow.com/a/941319)
 
 ## Third Party Assets 
 

@@ -3,6 +3,7 @@
     --color-secondary: #31363F;
     --teal: #76ABAE;
     --off-white: #EEEEEE;
+    --cell-size: 8vmin;
 }
 
 html,
@@ -74,6 +75,30 @@ footer a {
     text-decoration: none;
 }
 
+table {
+    border-collapse: collapse;
+    background-color: var(--teal);
+    border: 2px solid var(--teal);
+}
+
+tr,
+td {
+    padding: 0;
+    margin: 0;
+}
+
+td {
+    box-sizing: border-box;
+    height: var(--cell-size);
+    width: var(--cell-size);
+}
+
+/* Created checked board pattern */
+tr:nth-child(even) td:nth-child(odd), 
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: var(--off-white);
+}
+
 .big-heading {
     font-size: 4rem;
     font-family: "Holtwood One SC";
@@ -134,8 +159,17 @@ footer a {
 }
 
 .game-area p {
+    margin: 0;
 }
 
 .game-area {
-    margin: 5vh 10vw;
+    margin: 0 10vw;
+}
+
+.game-area button {
+    margin-top: 8px;
+}
+
+.game-piece {
+    width: var(--cell-size);
 }

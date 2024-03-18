@@ -1,6 +1,10 @@
+const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const RANKS = [1, 2, 3, 4, 5, 6, 7, 8];
+
 let _blunders = [];
 let _currentBlunderIndex = -1;
 let _isHintRevealed = false;
+
 
 main();
 
@@ -22,14 +26,24 @@ function main() {
     });
 }
 
+/**
+ * Start new game
+ */
 async function startGame() {
     const playScene = document.getElementById('play-scene');
     playScene.classList.remove('hidden');
 
     _blunders = await getBlunders();
-    if (_blunders.length) {
-        _currentBlunderIndex = 0;
-    }
+    
+    startRound(0);
+}
+
+/**
+ * Start a new round of the game
+ * @param {number} round Number indicating the next round
+ */
+function startRound(round) {
+    _currentBlunderIndex = round;
 
     const playersHeading = document.getElementById('players-heading');
     playersHeading.innerText = `${_blunders[_currentBlunderIndex].white.name} (white) vs. ${_blunders[_currentBlunderIndex].black.name} (black)`;
@@ -42,6 +56,44 @@ async function startGame() {
 
     const playerColor = document.getElementById('player-color');
     playerColor.innerText =  _blunders[_currentBlunderIndex].white.isActivePlayer ? 'white' : 'black';
+
+    generateGameBoard(_blunders[_currentBlunderIndex].board);
+}
+
+/**
+ * Generate game board
+ */
+function generateGameBoard(boardData) {
+    const gameTable = document.getElementById('game-board');
+    gameTable.innerHTML = '';
+
+    for(let row = 0; row < 8; row++) {
+        const tr = document.createElement('tr');
+        for(let col = 0; col < 8; col++) {
+            const td = document.createElement('td');
+            td.id = `td-${row}-${col}`;
+            td.title = FILES[col] + RANKS[RANKS.length - row - 1];
+
+            const div = document.createElement('div');
+            div.id = `${row}-${col}`;
+            div.classList.add('game-cell');
+
+            // Insert game pieces if applicable
+            if (boardData[row][col]) {
+                const gamePiece = boardData[row][col];
+                const img = document.createElement('img');
+                img.src = `assets/${gamePiece.color}-${gamePiece.type}.png`;
+                img.classList.add('game-piece');
+
+                div.appendChild(img);
+            }
+
+            td.appendChild(div);
+            tr.appendChild(td);
+        }
+
+        gameTable.appendChild(tr);
+    } 
 }
 
 /**
@@ -61,7 +113,7 @@ async function getBlunders() {
             }
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 
     return blunders;
