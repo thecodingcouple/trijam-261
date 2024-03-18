@@ -37,7 +37,24 @@
                                 <li>Click on the square of game piece to move.</li>
                                 <li>Click on a second square to highlight it's destination.</li>
                             </ol>
-                        <table id="game-board"></table>
+                        <div class="game-board-container">
+                            <div>
+                                <table id="game-board"></table>
+                                <section id="correct-answer" class="hidden">
+                                    <div>
+                                        <h2>Blunder!</h2>
+                                        <p id="blunder-explanation"></p>
+                                        <button id="next-round-button" class="state-game-button">Next Round</button>
+                                    </div>
+                                </section>
+                                <section id="incorrect-answer" class="hidden">
+                                    <div>
+                                        <h2>Not the blunder!</h2>
+                                        <button id="try-again-button" class="state-game-button">Retry?</button>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
                         <button id="hint-button" title="Reveal Hint">Reveal Hint</button>
                     </div>
                 </div>

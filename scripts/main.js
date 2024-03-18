@@ -1,10 +1,11 @@
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 const RANKS = [1, 2, 3, 4, 5, 6, 7, 8];
+const HIGHLIGHT_CELL_CLASSNAME = 'highlighted-cell';
 
 let _blunders = [];
 let _currentBlunderIndex = -1;
 let _isHintRevealed = false;
-
+let _clickedCells = [];
 
 main();
 
@@ -23,6 +24,34 @@ function main() {
     const hintButton = document.getElementById('hint-button');
     hintButton.addEventListener('click', () => {
         hintButton.classList.add('hidden');
+
+        const pieceToMove = _blunders[_currentBlunderIndex].pieceToMove;
+        const elementId = `${pieceToMove[0]}-${pieceToMove[1]}`;
+        const div = document.getElementById(elementId);
+        div.classList.add(HIGHLIGHT_CELL_CLASSNAME);
+
+        _clickedCells.push([pieceToMove[0], pieceToMove[1]]);
+    });
+
+    const tryAgainButton = document.getElementById('try-again-button');
+    tryAgainButton.addEventListener('click', () => {
+        const incorrectAnswer = document.getElementById('incorrect-answer');
+        incorrectAnswer.classList.add('hidden');
+        hintButton.classList.remove('hidden');
+
+        startRound(_currentBlunderIndex);
+    });
+
+    const nextRoundButton = document.getElementById('next-round-button');
+    nextRoundButton.addEventListener('click', () => {
+        const correctAnswer = document.getElementById('correct-answer');
+        correctAnswer.classList.add('hidden');
+
+        if(hintButton.classList.contains('hidden')) {
+            hintButton.classList.remove('hidden');
+        }
+
+        startRound(_currentBlunderIndex + 1);
     });
 }
 
@@ -44,6 +73,7 @@ async function startGame() {
  */
 function startRound(round) {
     _currentBlunderIndex = round;
+    _clickedCells = [];
 
     const playersHeading = document.getElementById('players-heading');
     playersHeading.innerText = `${_blunders[_currentBlunderIndex].white.name} (white) vs. ${_blunders[_currentBlunderIndex].black.name} (black)`;
@@ -58,6 +88,33 @@ function startRound(round) {
     playerColor.innerText =  _blunders[_currentBlunderIndex].white.isActivePlayer ? 'white' : 'black';
 
     generateGameBoard(_blunders[_currentBlunderIndex].board);
+}
+
+/**
+ * Determine whether or not the player guess correctly before ending the round
+ */
+function endRound() {
+    let playerWon = true;
+    let pieceToMove = _blunders[_currentBlunderIndex].pieceToMove;
+    let destination = _blunders[_currentBlunderIndex].destination;
+    // Check to see if the user won the round
+    for(let cell of _clickedCells) {
+        if(!(cell[0] == pieceToMove[0] && cell[1] == pieceToMove[1]) || 
+           !(cell[0] == destination[0] && cell[1] == destination[1])) {
+            playerWon = false;
+        }
+    }
+console.log(_clickedCells, pieceToMove, destination);
+    if (playerWon) {
+        const correctAnswer = document.getElementById('correct-answer');
+        correctAnswer.classList.remove('hidden');
+
+        const blunderExplanation = document.getElementById('blunder-explanation');
+        blunderExplanation.innerText = _blunders[_currentBlunderIndex].description;
+    } else {
+        const incorrectAnswer = document.getElementById('incorrect-answer');
+        incorrectAnswer.classList.remove('hidden');
+    }
 }
 
 /**
@@ -77,6 +134,19 @@ function generateGameBoard(boardData) {
             const div = document.createElement('div');
             div.id = `${row}-${col}`;
             div.classList.add('game-cell');
+            div.addEventListener('click', () => {
+                if(div.classList.contains(HIGHLIGHT_CELL_CLASSNAME)) {
+                    div.classList.remove(HIGHLIGHT_CELL_CLASSNAME);
+                    _clickedCells = _clickedCells.filter(c => c[0] != row && c[1] != col);
+                } else {
+                    div.classList.add(HIGHLIGHT_CELL_CLASSNAME);
+                    _clickedCells.push([row, col]);
+                }
+
+                if(_clickedCells.length == 2) {
+                    endRound();
+                }
+            });
 
             // Insert game pieces if applicable
             if (boardData[row][col]) {

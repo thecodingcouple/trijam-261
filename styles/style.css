@@ -2,7 +2,10 @@
     --color-primary: #222831;
     --color-secondary: #31363F;
     --teal: #76ABAE;
+    --dark-teal: #007F73;
+    --translucent-dark-teal: #007f728c;
     --off-white: #EEEEEE;
+    --gold: #FFC700;
     --cell-size: 8vmin;
 }
 
@@ -78,7 +81,12 @@ footer a {
 table {
     border-collapse: collapse;
     background-color: var(--teal);
-    border: 2px solid var(--teal);
+}
+
+table,
+tr,
+td {
+    border: 1px solid var(--dark-teal);
 }
 
 tr,
@@ -166,10 +174,52 @@ tr:nth-child(odd) td:nth-child(even) {
     margin: 0 10vw;
 }
 
+.game-area,
+.game-board-container {
+    position: relative;
+}
+
 .game-area button {
     margin-top: 8px;
 }
 
 .game-piece {
     width: var(--cell-size);
+}
+
+.game-cell {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+
+.highlighted-cell {
+    background-color: var(--gold);
+}
+
+#correct-answer,
+#incorrect-answer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--translucent-dark-teal);
+    color: var(--off-white);
+} 
+
+#correct-answer > div,
+#incorrect-answer > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#correct-answer h2,
+#incorrect-answer h2 {
+    font-family: "Holtwood One SC";
+    text-shadow: 2px 2px var(--color-primary);
+    font-size: 1.5rem;
 }
