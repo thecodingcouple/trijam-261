@@ -228,6 +228,6 @@ tr:nth-child(odd) td:nth-child(even) {
 #blunder-explanation {
     padding: 5% 10%;
     background-color: var(--translucent-teal);
-    text-shadow: 1px 1px var(--color-secondary);
+    color: var(--color-primary);
     text-align: justify;
 }
