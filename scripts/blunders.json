@@ -176,6 +176,63 @@
             "pieceToMove": [2,5],
             "destination": [3,3],
             "description": "In this 5 minute blitz, Adhiban opens with the Nimzo-Larsen attack.  On the eigth move, just seconds into the game, Navara falls for a trap.  After 8.cxd5, Navara plays 8..Nxd5, initiating a mate-in-4.  Adhiban plays the first mating move 9.Qg4 and Navara resigns.  The white queen threatens a mate on g7.  Pushing the g-pawn is of no help. After 9..g6, 10.Nh6# 1-0.  Also futile is defending the g-pawn with 9..Bd4.  After 10.Bxd4 Qg5 11.Qxg5 all roads lead to either Qxg7# or Nh6#.  See https://www.chess.com/events/2021-mrdodgy-invitational-2-0/01-02/Adhiban_B_-Navara_David"
+        },
+        {
+            "event": "Altibox Norway Chess",
+            "date": "October 15, 2020",
+            "white": {
+                "name": "Alireza Firouzja",
+                "isActivePlayer": true
+            },
+            "black": {
+                "name": "Magnus Carlson"
+            },
+            "board": [
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [
+                    null, null, null, 
+                    { 
+                        "type": "king", 
+                        "color": "black"
+                    }, 
+                    null, 
+                    { 
+                        "type": "pawn", 
+                        "color": "black"
+                    }, 
+                    null, null
+                ],
+                [
+                    null, null, null, null, 
+                    { 
+                        "type": "pawn", 
+                        "color": "black"
+                    }, 
+                    null, null, null
+                ],
+                [
+                    null, null, null, null, 
+                    { 
+                        "type": "pawn", 
+                        "color": "white"
+                    }, 
+                    null, null, null
+                ],
+                [
+                    null, null, null, 
+                    { 
+                        "type": "king", 
+                        "color": "white"
+                    }, 
+                    null, null, null, null
+                ],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null]
+            ],
+            "pieceToMove": [5,3],
+            "destination": [5,2],
+            "description": "69.Kc3?? loses the game for Firouzja by giving the opposition to the opposing king and inevitably losing his last pawn.  69.Kd2!! would have maintained the opposition (odd number of squares between kings and the opponent has the move) and prevented the enemy king from advancing."
         }
     ]
 }
