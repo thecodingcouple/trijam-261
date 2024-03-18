@@ -23,6 +23,16 @@ main {
     height: 100%;
 }
 
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+h3 {
+    font-style: italic;
+}
+
 header, 
 footer {
     padding: 1rem 2rem;
@@ -79,7 +89,7 @@ footer a {
 }
 
 .game-description {
-    padding: 5vh 10vw;
+    padding: 5vh 15vw;
 }
 
 .game-description p {
@@ -111,12 +121,21 @@ footer a {
     color: white;
 }
 
+.game-area,
 #start-scene div {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
+.game-area,
 #start-scene > div {
     flex-direction: column;
+}
+
+.game-area p {
+}
+
+.game-area {
+    margin: 5vh 10vw;
 }

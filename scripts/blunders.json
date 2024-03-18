@@ -12,7 +12,33 @@
                 "isActivePlayer": true
             },
             "board": [
-                []
+                [ 
+                    { 
+                        "type": "queen", 
+                        "color": "black",
+                        "file": "a",
+                        "rank": 8
+                    }, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    null, 
+                    { 
+                        "type": "king", 
+                        "color": "white",
+                        "file": "h",
+                        "rank": 8
+                    }
+                ],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, null, null, null, null, null]
             ],
             "pieceToMove": [0,3],
             "destination": [3,8],
