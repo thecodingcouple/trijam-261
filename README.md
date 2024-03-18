@@ -1,11 +1,22 @@
 # trijam-261
 Source code for our Trijam 261 entry. The theme is "One Wrong Move."
 
-[Trijam](https://itch.io/jam/trijam-261) is a weekly game jam where the goal is to create a game in under 3 hours of development time.
+[Trijam](https://itch.io/jam/trijam-261) is a weekly game jam where the goal is to create a game in under 3 hours of development time. We went over the 3 hour goal and spent about 8 hours of active development time in creating the artwork and programming the game.
+
+Try out it out [here](https://thecodingcouple.github.io/trijam-261/)!
 
 ## Synopsis
 
-TBD
+In **Famous Blunders** you are replaying the final moments before a chess player blundered a game piece. The objective of the game is to identify which piece was blundered and where it was moved to. To play the game, players will:
+
+1. Select a square with the game piece to move
+2. Select a destination square for the game piece
+
+![Famous Blunders](assets/game-preview.gif)
+
+Artwork hand drawn by our 9 year old!
+
+![Screenshot](assets/white-rook.png)
 
 ## Project Setup
 
@@ -17,7 +28,9 @@ python -m http.server 8000
 
 ## Built With
 
-* TBD
+* JavaScript
+* Visual Studio Code
+* Procreate
 
 ## Useful Resources
 
