@@ -5,6 +5,8 @@ Source code for our Trijam 261 entry. The theme is "One Wrong Move."
 
 Try out it out [here](https://thecodingcouple.github.io/trijam-261/)!
 
+[Trijam #261 Game Dev Diary](https://www.thecodingcouple.com/trijam-261-game-jam-diary-one-wrong-move/)
+
 ## Synopsis
 
 In **Famous Blunders** you are replaying the final moments before a chess player blundered a game piece. The objective of the game is to identify which piece was blundered and where it was moved to. To play the game, players will:
