@@ -16,6 +16,8 @@ In **Famous Blunders** you are replaying the final moments before a chess player
 
 ![Famous Blunders](assets/game-preview.gif)
 
+(Note: there is a blunder in drawing the chessboard here! The error has been fixed since creating the preview gif. Light is on the right!)
+
 Artwork hand drawn by our 9 year old!
 
 ![Screenshot](assets/white-rook.png)
