@@ -81,7 +81,7 @@ footer a {
 
 table {
     border-collapse: collapse;
-    background-color: var(--teal);
+    background-color: var(--off-white);
 }
 
 table,
@@ -105,7 +105,7 @@ td {
 /* Created checked board pattern */
 tr:nth-child(even) td:nth-child(odd), 
 tr:nth-child(odd) td:nth-child(even) {
-    background-color: var(--off-white);
+    background-color: var(--teal);
 }
 
 .big-heading {
@@ -231,3 +231,9 @@ tr:nth-child(odd) td:nth-child(even) {
     color: var(--color-primary);
     text-align: justify;
 }
+
+@media only screen and (max-width: 768px) {
+    .big-heading {
+      font-size: 1.5rem;
+    }
+  }
